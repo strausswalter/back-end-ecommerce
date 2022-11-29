@@ -1,0 +1,36 @@
+  
+
+//Opção de exportação no padrão de codificação funcional. JSON com cada chave recebendo uma função anônima.
+module.exports = {
+  getProducts: function(){
+  return PRODUCTS;
+}
+
+getProduct: function(id) {
+  let result = PRODUCTS[id];
+  if(result !== null && result !== undefined){
+      return result;
+  }
+  return {
+      msg: "Nenhum produto encontrado"
+  }
+}
+};
+
+
+
+//No outro arquivo importar conforme abaixo:
+
+//Opção de importação no padrão de codificação funcional:
+// const { getProducts, getProduct } = require('../controllers/ProductController');
+
+//	GET - Recupera dados do servidor
+// router.get("/", async (req, res) => {
+//     let result = getProducts();
+//     res.send(result);
+// });
+
+// router.get("/:id", async (req, res) => {
+//     let result = getProduct(req.params.id);
+//     res.send(result);
+// });
