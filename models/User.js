@@ -27,6 +27,19 @@ const User = db.define("user", {
         type: DataTypes.STRING,
         allowNull: false
     },
+    role:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 2
+    },
+    active:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    },
+    token:{
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
 
 });
 
