@@ -22,6 +22,7 @@ router.post("/confirm-recovery", async (req, res) => {
 
 //Login: localhost:3001/auth/login
 router.post("/login", async (req, res) => {
+    // console.log(req.body);
     const result = await authCtrl.login(req.body.userEmail, req.body.password);
     res.statusCode = result.status;
     res.send(result.result);

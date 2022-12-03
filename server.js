@@ -1,5 +1,6 @@
 const express = require('express');
-// const path = require('path');
+const cors = require('cors');
+
 require("dotenv").config();//Para usar variaveis de ambiente do arquivo .env
 const app = express();
 // const port = 3001;  Usando variaveis de ambiente no lugar (arquivo .env)
@@ -15,6 +16,7 @@ const category = require('./routes/category');
 
 //Rotas - montar a função middleware no caminho especificado:
 app.use(express.json());  
+app.use(cors());
 // app.use(session({ //iniciando o express-session
 //     secret: '5f77c00dc1387f36ebf52264de3eedc3281c57a8978455e54',
 //     resave: false,

@@ -25,7 +25,7 @@ class ProductController extends GenericController{
 
     const order = this.generateOrder(params);
 
-  
+
     if(params.q){//Verifica se existe parametro 'q' no request
       result = await Product.findAll({
         where: {
@@ -48,7 +48,7 @@ class ProductController extends GenericController{
     }
     return {
       status: 200,
-      msg: result,
+      msg: result,//TODO: Mudar msg para data ??
     };
     }catch (err) {
       return {

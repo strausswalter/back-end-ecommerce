@@ -134,10 +134,19 @@ class AuthController extends GenericController {
                 username: user.username,
                 name: user.name,
               });
+              const {email, username, name, id, role, active} = user;//Extraindo as informações do user que irei enviar via json (ao invés de delete user.password)
               return {
                 result: {
                   msg: "Usuário logado com sucesso",
                   token: token,
+                  user: {
+                    email, 
+                    username, 
+                    name, 
+                    id, 
+                    role, 
+                    active
+                  },
                 },
                 status: 200,
               };

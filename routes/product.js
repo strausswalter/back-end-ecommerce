@@ -11,19 +11,21 @@ const jwt = new Jwt();
 
 
 //GET
+//TODO: Ativar verifyToken após integração com front-end.
 router.get("/", async (req, res) => {
-    let result = jwt.verifyToken(req.headers.authorization);
-    if(result.status === 200){
+    // let result = jwt.verifyToken(req.headers.authorization);
+    // if(result.status === 200){
         result = await productCtrl.getProducts(req.query);
-    }
+    // }
     res.statusCode = result.status;
     res.send(result.msg);});
 
+    //TODO: Ativar verifyToken após integração com front-end.
 router.get("/:id", async (req, res) => {
-    let result = jwt.verifyToken(req.headers.authorization);
-    if(result.status === 200){
+    // let result = jwt.verifyToken(req.headers.authorization);
+    // if(result.status === 200){
         result = await productCtrl.getProduct(req.params.id);//Apagar "productCtrl." caso use a opção de importação no padrão de codificação funcional
-    }
+    // }
     res.statusCode = result.status;
     res.send(result.msg);
 });
@@ -31,12 +33,13 @@ router.get("/:id", async (req, res) => {
 
 //Cria um produto:
 router.post("/", async (req, res) => {
-    let result = jwt.verifyToken(req.headers.authorization);
-    if(result.status === 200){
+    //TODO: Ativar token após integração com front-end
+    // let result = jwt.verifyToken(req.headers.authorization);
+    // if(result.status === 200){
         result = await productCtrl.createProduct(req.body);
-    }
+    // }
     res.statusCode = result.status;
-    res.send(result.msg);
+    res.send(result);
 });
 
 //Editar um produto:

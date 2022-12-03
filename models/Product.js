@@ -22,8 +22,12 @@ const Product = db.define("product", {
         allowNull: true
     },
     price:{
-        type: DataTypes.FLOAT,
+        type: DataTypes.FLOAT,//TODO: Mudar para double ??
         allowNull: false
+    },
+    promo_price:{
+        type: DataTypes.FLOAT,//TODO: Mudar para double ??
+        allowNull: true
     },
 
 });
