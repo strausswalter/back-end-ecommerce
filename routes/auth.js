@@ -6,6 +6,16 @@ const UserController = require('../controllers/UserController');
 const authCtrl = new AuthController();
 const userCtrl = new UserController();
 
+router.post("/valida-token", async (req, res) => {
+    const result = await authCtrl.validaToken(req.body.email);
+    
+    res.statusCode = result.status;
+    res.send(result.result);
+});
+
+
+
+
 //Recovery password - Solicitação de reset de senha e envio email
 router.post("/recovery", async (req, res) => {
     const result = await authCtrl.recoveryPassword(req.body.email);
